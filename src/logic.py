@@ -66,7 +66,7 @@ def toggle_port( host, https_xssid, port, state ):
             verify = False )
 
 
-def encode( input ):
+def encode( input_str ):
     """
     Frontend of ZyXel GS-1900 Series encodes the entered password using JS. This is our Python implementation:
 
@@ -74,15 +74,15 @@ def encode( input ):
     character contains one of the characters in the input string in reverse order.
     on position 123 and 289 are control values. The rest of the string can be garbage.
 
-    :param input: string to encode
+    :param input_str: string to encode
     :return: encoded string
     """
     text = ""
-    input_len = len( input )
+    input_len = len( input_str )
     input_lenn = input_len
     for i in range( 1, 321 - input_len ):
         if 0 == i % 5 and input_len > 0:
-            text += input[ input_len - 1 ]
+            text += input_str[ input_len - 1 ]
             input_len -= 1
         elif i == 123:
             if input_lenn < 10:
