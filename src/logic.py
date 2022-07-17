@@ -78,7 +78,6 @@ def encode( input ):
     :return: encoded string
     """
     text = ""
-    possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
     input_len = len( input )
     input_lenn = input_len
     for i in range( 1, 321 - input_len ):
